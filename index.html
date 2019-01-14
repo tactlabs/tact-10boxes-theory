@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TACT 10 Boxes</title>
+
+
+
+<style type="text/css">
+
+
+.square_out{
+	border:1px solid #000;
+	
+	width:100px; 
+    height:120px;
+    float: left;
+    margin-right: 20px;
+}
+
+.square{
+     /*width:100px;*/ 
+     /*height:80px;*/
+     
+     padding-top:20px; 
+      
+     background:#75da75;
+     
+     float: left;
+     margin-right: 20px;
+}
+
+input.box_input{
+	width: 100px;
+	float: left;
+	margin-left:0px;
+	margin-right:10px;
+}
+</style>
+</head>
+<body>
+
+
+<div style="padding: 100px;">
+	
+	<div class="square_out">
+		<div class="square" id="marks_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="projects_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="articles_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="network_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="relatives_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="trendy_topics_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="research_work_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="personality_mirroring_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="luck_box">
+		</div>
+	</div>
+	
+	<div class="square_out">
+		<div class="square" id="demand_and_supply_box">
+		</div>
+	</div>
+	
+	
+	<div class="square_out">
+		<div class="square" id="total_box" style="background:#75da75;">
+		</div>
+	</div>
+	
+</div>
+
+<div style="padding: 100px;">
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="marks_box" placeholder="Marks" min="0" max="10"  />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="projects_box" placeholder="Projects" min="0" max="10" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="articles_box" placeholder="Articles" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="network_box" placeholder="Network" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="relatives_box" placeholder="Relatives" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="trendy_topics_box" placeholder="Trendy" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="research_work_box" placeholder="Research" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="personality_mirroring_box" placeholder="Personality Mirroring" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="luck_box" placeholder="Luck" />
+	</div>
+	
+	<div class="" id="_box">
+		<input type="number" class="box_input" d-box="demand_and_supply_box" placeholder="Demand & Supply" />
+	</div>
+	
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//console.log('test1');
+
+	var total_meter = 0;
+	
+	$("input").focusout(function() { // focusout method to bind function
+		//$(this).css("border", "5px solid orange");
+		//console.log('test2');
+		
+		//style="width:100px; height:80px;"
+		
+		var id = $(this).attr('d-box');
+		//console.log(id);
+		
+		var meter = parseInt($(this).val());
+		
+		total_meter += meter;
+		
+		$('#'+id).css({
+			'width' : '100px',
+			'height' : (meter * 10)+'px'
+		});
+		
+		console.log(total_meter);
+		
+		if(total_meter > 50){
+			$('#total_box').css({
+				'background' : '#75da75'
+			});
+		} else {
+			$('#total_box').css({
+				'background' : '#f74747'
+			});
+		}
+		
+		$('#total_box').css({
+			'width' : '100px',
+			'height' : total_meter+'px'
+		});
+		
+		
+		
+	});  
+    
+});
+</script>  
+
+
+</body>
+
+<!-- 
+	link
+	
+	https://medium.com/@rajacsp/tact-10-boxes-theory-3a1808373bc8
+	
+	Marks
+	
+	Projects
+	
+	Articles
+	
+	Network
+	
+	Relative in the Industry
+	
+	Knowledge of trendy topics
+	
+	Research Work
+	
+	Personality Mirroring (Founder / Company Culture)
+	
+	Luck
+	
+	Demand and Supply Factor
+ -->
+
+</html>
